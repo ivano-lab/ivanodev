@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- saved from url=(0028)https://ivanodev.vercel.app/ -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>landing</title>
   <style>
     * {
@@ -36,20 +36,6 @@
       font-size: 1.5rem;
       color: #0ff;
       text-shadow: 0 0 5px #0ff;
-    }
-
-    h2 {
-      margin: 40px auto 20px 20px 20px; 
-      text-align: center;      
-      font-size: 1.5rem;
-      font-weight: bold;
-      background: linear-gradient(90deg, #1A6DFF, #C822FF, #6DC7FF, #E6ABFF);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text; 
-      color: transparent;
-      animation: gradientShift 5s ease infinite;
-      background-size: 300% 300%;
     }
 
     nav {
@@ -118,6 +104,8 @@
     }
 
     main {
+      padding: 7rem 2rem 4rem 2rem;
+      max-width: 800px;
       margin: auto;
       line-height: 1.6;
       animation: fadeText 1.5s ease-in-out;
@@ -128,19 +116,37 @@
       100% { opacity: 1; transform: translateY(0); }
     }
 
-    .container-foto {
-      border: #00ffe0 solid 1px;
-      width: 100%;
-      margin: 0;
-      padding: 0;
+    /*.perfil {
+      display: flex; 
+      align-items: center; 
     }
 
     .foto-perfil {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
+      width: 100%; 
+      height: auto; 
+      border-radius: 4%; 
+    }*/
+
+    .container-foto {
+      width: 100%; /* Isso limita a largura */
+      max-width: none;
+      margin: 0 auto;
+      padding: 0 auto;
+      /*position: relative;
+      width: fit-content;  
+      display: inline-block;*/ 
     }
+
+     /*.foto-perfil {
+      width: 100%; /* ajuste conforme sua imagem 
+      border-radius: 4%; /* opcional, para deixar redonda 
+    }*/
+
+    .foto-perfil {
+  width: 100%;          /* ocupa a largura disponível */
+  height: auto;         /* mantém a proporção */
+  object-fit: contain;  /* não corta nada da imagem */
+}
 
     .flutuante1 {
       position: absolute;
@@ -185,15 +191,23 @@
       width: 10%;
     }
 
+    /*.cto {
+      background: #30bf39;
+      color: #e0e0e0;
+      font-size: 20px;
+      width: 100%;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: 0 0 25px #30bf39;
+    }*/
+
     .cto {
       background: #30bf39;
       color: #e0e0e0;
-      font-size: 20px;      border-radius: 40px;
-      width: 90%;
+      font-size: 20px;
+      width: 100%;
       border-radius: 40px;
       padding: 10px;
-      display: block;
-      margin: auto;
       box-shadow: 0 0 25px #30bf39;
       animation: pulsar 1.8s ease-in-out infinite;
       border: none;
@@ -217,6 +231,7 @@
       }
     }
 
+
     section {
       margin-bottom: 3rem;
       opacity: 0;
@@ -228,6 +243,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+   h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #1A6DFF, #C822FF, #6DC7FF, #E6ABFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* para navegadores modernos */
+    color: transparent;
+    animation: gradientShift 5s ease infinite;
+    background-size: 300% 300%;
+  }
 
   @keyframes gradientShift {
     0% {
@@ -252,7 +280,7 @@
       box-shadow: 0 0 20px rgb(70, 78, 78);
       border-radius: 10px;
       padding: 30px;
-      margin: 20px 20px;
+      margin: 20px 0;
       box-shadow: 0 0 10px #00ffe055;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -311,16 +339,13 @@
     }
   </style>
 </head>
-<body>
+<body cz-shortcut-listen="true">
 
   <header>
-    <!--<h1>&lt;/&gt;</h1>
-    <nav id="desktop-menu">
+    <h1>&lt;/&gt;</h1>
+    <!--<nav id="desktop-menu">
       <a href="#">Início</a>
-      <a hre
-   <h2>A primeira impressão do seu site define se o cliente fica ou vai embora!</h2>
-    <section class="scroll-show card">
-f="#">Sobre</a>
+      <a href="#">Sobre</a>
       <a href="#">Projetos</a>
       <a href="#">Contato</a>
     </nav>
@@ -345,36 +370,36 @@ f="#">Sobre</a>
       <img src="icons8-css3-64.png" alt="Logo CSS" class="flutuante3">
     </div>
   
-    <!--<a href="https://api.whatsapp.com/send?phone=5563984486319&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/serviço].%20Pode%20me%20ajudar%3F" target="_blank"><img src="whatsapp-logo-2449.png" alt="botão flutuante whatsapp" class="imagem-flutuante"></a>
-    <h2>Design impecável</h2> 
+    <a href="https://api.whatsapp.com/send?phone=5563984486319&amp;text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/servi%C3%A7o].%20Pode%20me%20ajudar%3F" target="_blank"><img src="./landing_files/whatsapp-logo-2449.png" alt="botão flutuante whatsapp" class="imagem-flutuante"></a>
+    <!--<h2>Design impecável</h2> 
     <h2>Estratégia afiada</h2> 
     <h2>Resultados reais</h2>-->
     <h2>A primeira impressão do seu site define se o cliente fica ou vai embora!</h2>
-    <section class="scroll-show card">
+    <section class="scroll-show card visible">
       <p>
       </p>
       <p>
-        A Combinação de <b>design de alto impacto</b> com as <p>melhores técnicas de marketing digital</p> pode criar sites que não só impressionam — <b>mas convertem.</b>
-      </p>
+        A Combinação de <b>design de alto impacto</b> com as </p><p>melhores técnicas de marketing digital</p> pode criar sites que não só impressionam — <b>mas convertem.</b>
+      <p></p>
     </section>
 
-    <button type="button" class="cto">Solicitar Orçamento Grátis <img src="whatsapp-logo-2449.png" alt="" class="img-botao-zap"></button>
+    <button type="button" class="cto">Solicitar Orçamento Grátis <img src="./landing_files/whatsapp-logo-2449.png" alt="" class="img-botao-zap"></button>
 
-    <section class="scroll-show card">
+    <section class="scroll-show card visible">
       <h2>Lorem Impsum</h2>
     </section>
 
-    <section class="scroll-show card">
+    <section class="scroll-show card visible">
       <h2>Lorem Impsum</h2>
     </section>
   </main>
 
   <footer>
     <div class="social-media">
-      <a href="https://api.whatsapp.com/send?phone=5563984486319&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/serviço].%20Pode%20me%20ajudar%3F" target="_blank"><img src="icons8-whatsapp-64.png"></img></a>
-      <a href="https://www.instagram.com/ivanofontes/" target="_blank"><img src="icons8-instagram-64.png" alt=" intagramlogo"></a>
+      <a href="https://api.whatsapp.com/send?phone=5563984486319&amp;text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/servi%C3%A7o].%20Pode%20me%20ajudar%3F" target="_blank"><img src="./landing_files/icons8-whatsapp-64.png"></a>
+      <a href="https://www.instagram.com/ivanofontes/" target="_blank"><img src="./landing_files/icons8-instagram-64.png" alt=" intagramlogo"></a>
     </div>
-    &copy; 2025 Ívano Fontes. Todos os direitos reservados.
+    © 2025 Ívano Fontes. Todos os direitos reservados.
   </footer>
 
   <script>
@@ -396,5 +421,6 @@ f="#">Sobre</a>
       observer.observe(section);
     });
   </script>
-</body>
-</html>
+
+
+</body></html>

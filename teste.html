@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f1c;
+      overflow-x: hidden;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    .container-foto {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .foto-perfil {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #1A6DFF, #C822FF, #6DC7FF, #E6ABFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text; /* para navegadores modernos */
+      color: transparent;
+      animation: gradientShift 5s ease infinite;
+      background-size: 300% 300%;
+    }
+
+    @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+    .cto {
+      background: #30bf39;
+      color: #e0e0e0;
+      font-size: 20px;
+      width: 100%;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: 0 0 25px #30bf39;
+      animation: pulsar 1.8s ease-in-out infinite;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .cto:hover {
+      transform: scale(1.03);
+    }
+
+    .img-botao-zap {
+      width: 10%;
+    }
+
+    footer {
+      border-top: 1px solid #00ffe0;
+      box-shadow: 0 0 20px #0ff;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body>
+  
+  <main>
+    <div class="container-foto">
+      <img src="perfil.jpg" alt="Minha Foto" class="foto-perfil">
+    </div>
+  </main>
+  
+  <h2>A primeira impressão do seu site define se o cliente fica ou vai embora!</h2>
+    <section class="scroll-show card">
+      <p>
+      </p>
+      <p>
+        A Combinação de <b>design de alto impacto</b> com as <p>melhores técnicas de marketing digital</p> pode criar sites que não só impressionam — <b>mas convertem.</b>
+      </p>
+  </section>
+
+  <button type="button" class="cto">Solicitar Orçamento Grátis <img src="whatsapp-logo-2449.png" alt="" class="img-botao-zap"></button>
+
+
+  <footer>
+    <div class="social-media">
+      <a href="https://api.whatsapp.com/send?phone=5563984486319&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/serviço].%20Pode%20me%20ajudar%3F" target="_blank"><img src="icons8-whatsapp-64.png"></img></a>
+      <a href="https://www.instagram.com/ivanofontes/" target="_blank"><img src="icons8-instagram-64.png" alt=" intagramlogo"></a>
+    </div>
+    &copy; 2025 Ívano Fontes. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.scroll-show').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>

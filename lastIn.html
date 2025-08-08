@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futurista Total</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #0f0f0f, #1a1a1a);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #121212;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #00ffff;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #00ffff;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #00ffff;
+      transition: 0.4s;
+    }
+
+    .menu-mobile {
+      display: none;
+      flex-direction: column;
+      background: #1f1f1f;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      padding: 1rem;
+      border-radius: 8px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .menu-mobile a {
+      color: #00ffff;
+      margin: 0.5rem 0;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    main {
+      padding: 7rem 2rem 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      animation: fadeText 1.5s ease-in-out;
+    }
+
+    @keyframes fadeText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .menu-mobile {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>NeoDarkSite</h1>
+    <nav id="desktop-menu">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Projetos</a>
+      <a href="#">Contato</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="menu-mobile" id="mobile-menu" style="display: none;">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Projetos</a>
+      <a href="#">Contato</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="scroll-show">
+      <h2>Mais perdido que variável local em escopo global</h2>
+      <p>Matamos a cobra e mostramos o log. Aqui o bug não sobrevive e o código é tratado com tapa na cara de realidade. Se você já ficou mais confuso que ponteiro sem referência, está em casa.</p>
+    </section>
+
+    <section class="scroll-show">
+      <h2>Texto Groselha V2.0</h2>
+      <p>Quem nunca debugou na força do ódio não sabe o que é viver perigosamente. Aqui a gambiarra é intencional, elegante e documentada. A sintaxe pode até chorar, mas o deploy vai no ar.</p>
+    </section>
+
+    <section class="scroll-show">
+      <h2>Futurismo com atitude</h2>
+      <p>Navegando no CSS Grid da existência, estilizamos cada bloco de realidade com uma borda sólida de sarcasmo e um hover de propósito. Renderize seus sonhos em alta definição e responsividade total.</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 NeoDarkSite. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.style.display = menu.style.display === "none" ? "flex" : "none";
+    }
+
+    // Scroll Animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.scroll-show').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
