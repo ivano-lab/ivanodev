@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>landing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f1c;
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #0f0f1c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
+      box-shadow: 0 0 20px #0ff;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: #00ffff;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background: #0ff;
+      box-shadow: 0 0 5px #0ff;
+      transition: 0.4s;
+    }
+
+    .menu-mobile {
+      display: none;
+      flex-direction: column;
+      background: #1f1f1f;
+      position: absolute;
+      top: 70px;
+      right: 20px;
+      padding: 1rem;
+      border-radius: 8px;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .menu-mobile a {
+      color: #00ffff;
+      margin: 0.5rem 0;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-10px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    main {
+      padding: 7rem 2rem 4rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+      animation: fadeText 1.5s ease-in-out;
+    }
+
+    @keyframes fadeText {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /*.perfil {
+      display: flex; 
+      align-items: center; 
+    }
+
+    .foto-perfil {
+      width: 100%; 
+      height: auto; 
+      border-radius: 4%; 
+    }*/
+
+    .container-foto {
+      width: 100%; /* Isso limita a largura */
+      max-width: none;
+      margin: 0 auto;
+      padding: 0 auto;
+      /*position: relative;
+      width: fit-content;  
+      display: inline-block;*/ 
+    }
+
+     /*.foto-perfil {
+      width: 100%; /* ajuste conforme sua imagem 
+      border-radius: 4%; /* opcional, para deixar redonda 
+    }*/
+
+    .foto-perfil {
+      width: 100vw;     /* Ocupa toda a largura da tela */
+      height: auto;     /* Mantém a proporção original da imagem */
+      display: block;   /* Remove espaços indesejados abaixo da imagem */
+      object-fit: cover;  /*(Opcional) Cobre a área, cortando partes se necessário */
+    }
+
+    .flutuante1 {
+      position: absolute;
+      top: 200px;
+      right: 10px;
+      width: 80px; 
+      animation: flutuar 7s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .flutuante2 {
+      position: absolute;
+      top: 150px;
+      right: 100px;
+      width: 90px; 
+      animation: flutuar 2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .flutuante3 {
+      position: absolute;
+      top: 200px;
+      right: 200px;
+      width: 90px; 
+      animation: flutuar 5s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes flutuar {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    .img-botao-zap {
+      width: 10%;
+    }
+
+    /*.cto {
+      background: #30bf39;
+      color: #e0e0e0;
+      font-size: 20px;
+      width: 100%;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: 0 0 25px #30bf39;
+    }*/
+
+    .cto {
+      background: #30bf39;
+      color: #e0e0e0;
+      font-size: 20px;
+      width: 100%;
+      border-radius: 40px;
+      padding: 10px;
+      box-shadow: 0 0 25px #30bf39;
+      animation: pulsar 1.8s ease-in-out infinite;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .cto:hover {
+      transform: scale(1.03);
+    }
+
+    @keyframes pulsar {
+      0% {
+        box-shadow: 0 0 10px #30bf39;
+      }
+      50% {
+        box-shadow: 0 0 35px #30bf39;
+      }
+      100% {
+        box-shadow: 0 0 10px #30bf39;
+      }
+    }
+
+
+    section {
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+   h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #1A6DFF, #C822FF, #6DC7FF, #E6ABFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text; /* para navegadores modernos */
+    color: transparent;
+    animation: gradientShift 5s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+    p {
+      text-align: justify;
+    }
+
+    .card {
+      background: #0f0f1c;
+      border: 1px solid #445755;
+      box-shadow: 0 0 20px rgb(70, 78, 78);
+      border-radius: 10px;
+      padding: 30px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px #00ffe055;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #00ffe0;
+    }
+
+    footer {
+      border-top: 1px solid #00ffe0;
+      box-shadow: 0 0 20px #0ff;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .imagem-flutuante {
+      position: fixed; 
+      bottom: 40px;    
+      right: 20px;     
+      width: 60px;    
+      height: auto;
+      z-index: 1000;   
+    }
+
+  @keyframes flutuar {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+    .social-media img {
+      width: 60px;   
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .menu-mobile {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>&lt;/&gt;</h1>
+    <!--<nav id="desktop-menu">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Projetos</a>
+      <a href="#">Contato</a>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="menu-mobile" id="mobile-menu" style="display: none;">
+      <a href="#">Início</a>
+      <a href="#">Sobre</a>
+      <a href="#">Projetos</a>
+      <a href="#">Contato</a>
+    </div>-->
+  </header>
+
+  <main>
+    <div class="container-foto">
+      <img src="perfil.jpg" alt="minha foto" class="foto-perfil">
+      <img src="icons8-logotipo-javascript-64.png" alt="Logo JS" class="flutuante1">
+      <img src="icons8-html-5-64.png" alt="Logo HTML" class="flutuante2">
+      <img src="icons8-css3-64.png" alt="Logo CSS" class="flutuante3">
+    </div>
+  
+    <a href="https://api.whatsapp.com/send?phone=5563984486319&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/serviço].%20Pode%20me%20ajudar%3F" target="_blank"><img src="whatsapp-logo-2449.png" alt="botão flutuante whatsapp" class="imagem-flutuante"></a>
+    <!--<h2>Design impecável</h2> 
+    <h2>Estratégia afiada</h2> 
+    <h2>Resultados reais</h2>-->
+    <h2>A primeira impressão do seu site define se o cliente fica ou vai embora!</h2>
+    <section class="scroll-show card">
+      <p>
+      </p>
+      <p>
+        A Combinação de <b>design de alto impacto</b> com as <p>melhores técnicas de marketing digital</p> pode criar sites que não só impressionam — <b>mas convertem.</b>
+      </p>
+    </section>
+
+    <button type="button" class="cto">Solicitar Orçamento Grátis <img src="whatsapp-logo-2449.png" alt="" class="img-botao-zap"></button>
+
+    <section class="scroll-show card">
+      <h2>Lorem Impsum</h2>
+    </section>
+
+    <section class="scroll-show card">
+      <h2>Lorem Impsum</h2>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-media">
+      <a href="https://api.whatsapp.com/send?phone=5563984486319&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20[assunto/produto/serviço].%20Pode%20me%20ajudar%3F" target="_blank"><img src="icons8-whatsapp-64.png"></img></a>
+      <a href="https://www.instagram.com/ivanofontes/" target="_blank"><img src="icons8-instagram-64.png" alt=" intagramlogo"></a>
+    </div>
+    &copy; 2025 Ívano Fontes. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      menu.style.display = menu.style.display === "none" ? "flex" : "none";
+    }
+
+    // Scroll Animation
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    document.querySelectorAll('.scroll-show').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>
